@@ -1,0 +1,294 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "speech_ops_bot",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/event_subscribe/cluster_config_check": {
+            "post": {
+                "summary": "Event Subscribe",
+                "operationId": "event_subscribe_event_subscribe_cluster_config_check_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EventCenterEvent"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "EventCenterEvent": {
+                "title": "EventCenterEvent",
+                "required": [
+                    "action",
+                    "action_id",
+                    "argos_region_list",
+                    "categories",
+                    "category_id",
+                    "cluster_list",
+                    "created_at",
+                    "dc_list",
+                    "desc",
+                    "ended_at",
+                    "env",
+                    "event_type",
+                    "handlers",
+                    "id",
+                    "index_meta_tags",
+                    "influence",
+                    "is_finish",
+                    "last_updated_at",
+                    "level",
+                    "meta_tags",
+                    "name",
+                    "node_id",
+                    "platform_id",
+                    "platform_url",
+                    "predict_ended_at",
+                    "psm",
+                    "started_at",
+                    "status",
+                    "updated_at",
+                    "zone_list"
+                ],
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "title": "Action",
+                        "type": "string"
+                    },
+                    "action_id": {
+                        "title": "Action Id",
+                        "type": "string"
+                    },
+                    "argos_region_list": {
+                        "title": "Argos Region List",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "categories": {
+                        "title": "Categories",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "category_id": {
+                        "title": "Category Id",
+                        "type": "string"
+                    },
+                    "cluster_list": {
+                        "title": "Cluster List",
+                        "type": "array",
+                        "items": {}
+                    },
+                    "created_at": {
+                        "title": "Created At",
+                        "type": "string"
+                    },
+                    "dc_list": {
+                        "title": "Dc List",
+                        "type": "array",
+                        "items": {}
+                    },
+                    "desc": {
+                        "title": "Desc",
+                        "type": "string"
+                    },
+                    "ended_at": {
+                        "title": "Ended At",
+                        "type": "string"
+                    },
+                    "env": {
+                        "title": "Env",
+                        "type": "string"
+                    },
+                    "event_type": {
+                        "title": "Event Type",
+                        "type": "string"
+                    },
+                    "handlers": {
+                        "title": "Handlers",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "id": {
+                        "title": "Id",
+                        "type": "string"
+                    },
+                    "index_meta_tags": {
+                        "title": "Index Meta Tags",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MetaTag"
+                        }
+                    },
+                    "influence": {
+                        "title": "Influence",
+                        "type": "string"
+                    },
+                    "is_finish": {
+                        "title": "Is Finish",
+                        "type": "boolean"
+                    },
+                    "last_updated_at": {
+                        "title": "Last Updated At",
+                        "type": "string"
+                    },
+                    "level": {
+                        "title": "Level",
+                        "type": "string"
+                    },
+                    "meta_tags": {
+                        "title": "Meta Tags",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MetaTag"
+                        }
+                    },
+                    "name": {
+                        "title": "Name",
+                        "type": "string"
+                    },
+                    "node_id": {
+                        "title": "Node Id",
+                        "type": "integer"
+                    },
+                    "platform_id": {
+                        "title": "Platform Id",
+                        "type": "string"
+                    },
+                    "platform_url": {
+                        "title": "Platform Url",
+                        "type": "string"
+                    },
+                    "predict_ended_at": {
+                        "title": "Predict Ended At",
+                        "type": "string"
+                    },
+                    "psm": {
+                        "title": "Psm",
+                        "type": "string"
+                    },
+                    "started_at": {
+                        "title": "Started At",
+                        "type": "string"
+                    },
+                    "status": {
+                        "title": "Status",
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "title": "Updated At",
+                        "type": "string"
+                    },
+                    "zone_list": {
+                        "title": "Zone List",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "HTTPValidationError": {
+                "title": "HTTPValidationError",
+                "type": "object",
+                "properties": {
+                    "detail": {
+                        "title": "Detail",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        }
+                    }
+                }
+            },
+            "MetaTag": {
+                "title": "MetaTag",
+                "required": [
+                    "key",
+                    "key_label",
+                    "val",
+                    "val_label"
+                ],
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "title": "Key",
+                        "type": "string"
+                    },
+                    "key_label": {
+                        "title": "Key Label",
+                        "type": "string"
+                    },
+                    "val": {
+                        "title": "Val",
+                        "type": "string"
+                    },
+                    "val_label": {
+                        "title": "Val Label",
+                        "type": "string"
+                    }
+                }
+            },
+            "ValidationError": {
+                "title": "ValidationError",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "loc": {
+                        "title": "Location",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "msg": {
+                        "title": "Message",
+                        "type": "string"
+                    },
+                    "type": {
+                        "title": "Error Type",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
